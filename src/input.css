@@ -1,0 +1,49 @@
+/* Порядок шарів: власні стилі ЛР №5 (legacy) вищі за базові стилі Tailwind, але нижчі за його утиліти */
+@layer theme, base, legacy, components, utilities;
+
+/* Tailwind сканує лише розмітку (index.html і компоненти). Без цього він шукав класи в усіх файлах проєкту,
+   зокрема в документації DESIGN-SYSTEM.md, і додавав у збірку класи, яких на сайті немає. */
+@import "tailwindcss" source(none);
+@source "../index.html";
+@source "../pricing.html";
+@source "../docs.html";
+@source "../embed.html";
+@source "../assets/js";
+@source "../components";
+
+/* Дизайн-система Coin Flow (ЛР №4): шрифти і колір бренду (смарагдовий).
+   Шрифти підключаються через Google Fonts у <head> сторінки. */
+@theme {
+  --font-sans: "Inter", "Segoe UI", sans-serif;
+  --font-heading: "Manrope", "Segoe UI", sans-serif;
+
+  /* радіуси дизайн-системи (збігаються з --radius-* у style.css, тому класи rounded-* однакові на всіх сторінках) */
+  --radius-sm: 4px;
+  --radius-md: 8px;  /* кнопки, поля */
+  --radius-lg: 12px; /* іконки, меню */
+  --radius-xl: 16px; /* картки, панелі */
+
+  /* Типографіка Figma, якої немає в стандартній шкалі Tailwind (решта збігається: text-5xl 48, text-4xl 36, text-2xl 24, text-lg 18, text-base 16, text-sm 14, text-xs 12) */
+  --text-display-l: 3.5rem; /* Display/L 56 */
+  --text-display-l--line-height: 1.2;
+  --text-display-m: 2.5rem; /* Display/M 40 */
+  --text-display-m--line-height: 1.2;
+  --text-h3: 2rem; /* Heading/H3 32 */
+  --text-h3--line-height: 1.3;
+  --text-h4: 1.75rem; /* Heading/H4 28 */
+  --text-h4--line-height: 1.3;
+  --leading-display: 1.2; /* Display, H1–H2 (у Tailwind leading-tight = 1.25) */
+  --leading-heading: 1.3; /* H3–H5 */
+
+  /* Кольори без точного відповідника в палітрі Tailwind (surface, border, muted збігаються зі slate-800/700/400) */
+  --color-background: #111928; /* фон сторінки */
+  --color-secondary: #0d192e; /* підвал, теги */
+  --color-error: #e5484d;
+
+  --shadow-card: 0 8px 24px rgb(0 0 0 / 0.35); /* як --shadow-md у style.css */
+
+  --color-brand-300: #6ee7b7; /* фокус, підсвічування, теги */
+  --color-brand-400: #34d399; /* hover */
+  --color-brand-500: #10b981; /* основні кнопки, акценти */
+  --color-brand-700: #047857; /* active (натискання) */
+}

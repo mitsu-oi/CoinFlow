@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Компонент Header — Tailwind CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/tailwind.css" />
+  </head>
+  <body class="bg-slate-900 font-sans text-slate-100" id="top">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-brand-500 focus:px-4 focus:py-2 focus:font-semibold focus:text-slate-950"
+    >
+      Перейти до основного вмісту
+    </a>
+
+    <!-- Header: mobile — логотип + гамбургер; md і вище — логотип + навігація + CTA -->
+    <header class="sticky top-0 z-40 border-b border-white/10 bg-slate-950">
+      <div
+        class="flex h-16 items-center justify-between gap-6 px-4 md:px-6 lg:px-10 2xl:px-16"
+      >
+        <a
+          href="#top"
+          class="flex min-h-11 shrink-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-400"
+        >
+          <img
+            src="../assets/images/logo.svg"
+            alt="Coin Flow — на головну"
+            width="48"
+            height="48"
+            decoding="async"
+            class="h-10 w-auto md:h-12"
+          />
+        </a>
+
+        <!-- Навігація для десктопа: прихована на mobile, видима від md -->
+        <nav aria-label="Основна навігація" class="hidden md:block">
+          <ul class="flex items-center gap-1">
+            <li>
+              <a
+                href="#simulator"
+                aria-current="page"
+                class="block rounded-md px-4 py-2 text-sm font-semibold text-white transition-colors focus-visible:outline-2 focus-visible:outline-brand-400"
+              >
+                Симулятор
+              </a>
+            </li>
+            <li>
+              <a
+                href="#benefits"
+                class="block rounded-md px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+              >
+                Переваги
+              </a>
+            </li>
+            <li>
+              <a
+                href="#reviews"
+                class="block rounded-md px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+              >
+                Відгуки
+              </a>
+            </li>
+            <li class="group relative">
+              <button
+                type="button"
+                aria-haspopup="true"
+                class="flex items-center gap-1.5 rounded-md px-4 py-2 text-sm font-medium text-slate-300 transition-colors group-focus-within:text-white hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+              >
+                Більше
+                <svg
+                  class="size-3 transition-transform group-focus-within:rotate-180 group-hover:rotate-180"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M2 4.5 6 8.5l4-4" />
+                </svg>
+              </button>
+              <!-- Випадне меню: відкривається при наведенні і при фокусі з клавіатури -->
+              <div
+                class="invisible absolute top-full left-0 min-w-48 pt-2 opacity-0 transition-[opacity,visibility] group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100"
+              >
+                <ul
+                  class="rounded-lg border border-white/10 bg-slate-900 p-2 shadow-lg"
+                >
+                  <li>
+                    <a
+                      href="#scenarios"
+                      class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                      >Сценарії</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#early-access"
+                      class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                      >Ранній доступ</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#faq"
+                      class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                      >FAQ</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#contacts"
+                      class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                      >Контакти</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <!-- CTA: тільки md і вище -->
+          <a
+            href="#simulator"
+            class="hidden min-h-11 items-center justify-center rounded-md bg-brand-500 px-5 py-2 text-sm font-semibold text-slate-950 transition-colors hover:bg-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 active:bg-brand-700 md:inline-flex"
+          >
+            Розрахувати
+          </a>
+
+          <!-- Гамбургер: тільки mobile. details/summary працює без JavaScript -->
+          <details class="group md:hidden">
+            <summary
+              class="flex size-11 cursor-pointer list-none items-center justify-center rounded-md text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-brand-400 [&::-webkit-details-marker]:hidden"
+            >
+              <span class="sr-only">Меню</span>
+              <svg
+                class="size-6 group-open:hidden"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+              <svg
+                class="hidden size-6 group-open:block"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
+            </summary>
+
+            <nav
+              aria-label="Мобільна навігація"
+              class="absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-white/10 bg-slate-950 px-4 pt-2 pb-5 shadow-lg"
+            >
+              <ul class="flex flex-col">
+                <li>
+                  <a
+                    href="#simulator"
+                    aria-current="page"
+                    class="flex min-h-11 items-center rounded-md px-3 font-semibold text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >Симулятор</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#benefits"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >Переваги</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#reviews"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >Відгуки</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#scenarios"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >Сценарії</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#faq"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >FAQ</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#contacts"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >Контакти</a
+                  >
+                </li>
+              </ul>
+              <a
+                href="#simulator"
+                class="mt-4 flex min-h-11 w-full items-center justify-center rounded-md bg-brand-500 px-5 py-2 text-sm font-semibold text-slate-950 transition-colors hover:bg-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 active:bg-brand-700"
+              >
+                Розрахувати
+              </a>
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1" class="mx-auto max-w-6xl px-4 py-16 md:px-6">
+      <h1 class="text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
+        Компонент Header
+      </h1>
+      <p class="mt-4 max-w-prose text-slate-300">
+        Змінюйте ширину вікна: до 768 px видно гамбургер, від 768 px —
+        горизонтальна навігація з випадним меню «Більше» та кнопка
+        «Розрахувати».
+      </p>
+    </main>
+  </body>
+</html>
