@@ -1,1 +1,8 @@
 node_modules/
+coin-flow-deploy/
+
+# системні та тимчасові файли
+.DS_Store
+Thumbs.db
+*.log
+.env
