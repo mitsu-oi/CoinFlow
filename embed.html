@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вбудований контент — Coin Flow</title>
-    <meta name="description" content="Приклади ембеддингу на сайті Coin Flow: карта, відео та інформер курсу валют.">
+    <title>Корисні матеріали — Coin Flow</title>
+    <meta name="description" content="Курс валют НБУ з конвертером гривні, відео про фінансову зрілість і карта офісу Coin Flow.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@600;700&display=swap" rel="stylesheet">
@@ -106,7 +106,7 @@
                     <a
                       href="embed.html"
                       class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
-                      >Вбудований контент</a
+                      >Корисні матеріали</a
                     >
                   </li>
                   <li class="mb-1 border-b border-white/10 pb-1">
@@ -247,7 +247,7 @@
                   <a
                     href="embed.html"
                     class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
-                    >Контент карта</a
+                    >Корисні матеріали</a
                   >
                 </li>
                 <li>
@@ -272,36 +272,19 @@
 
     <main id="main" tabindex="-1" class="mx-auto w-full max-w-6xl flex-1 px-4 py-16 md:px-6 md:py-24">
       <div class="mb-12 md:mb-16">
-        <h1 class="font-heading text-3xl leading-display font-semibold text-balance text-slate-50 sm:text-4xl md:text-5xl">Вбудований контент</h1>
+        <h1 class="font-heading text-3xl leading-display font-semibold text-balance text-slate-50 sm:text-4xl md:text-5xl">Корисні матеріали</h1>
         <p class="mt-4 max-w-2xl text-lg text-slate-400">
-          Приклади ембеддингу (embedding): інтерактивна карта, відео та динамічний інформер. Кожен блок лежить у власному
-          семантичному контейнері, а сторонні фрейми мають <code>title</code> і ліниве завантаження.
+          Усе, що допоможе планувати бюджет: актуальні курси валют із конвертером, відео про фінансову зрілість
+          і офіс Coin Flow на карті. Блоки вбудовано зі сторонніх сервісів (YouTube, Google Maps, API НБУ).
         </p>
       </div>
 
       <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_20rem]">
         <div class="flex min-w-0 flex-col gap-12">
-          <!-- 1. Інтерактивна карта (iframe) -->
-          <section id="map" aria-labelledby="map-title">
-            <h2 id="map-title" class="font-heading text-2xl leading-heading font-semibold text-slate-50">Наше розташування</h2>
-            <p class="mt-2 text-slate-400">Інтерактивна карта Google Maps (iframe).</p>
-            <div class="mt-4 h-80 w-full md:h-[450px] overflow-hidden rounded-xl border border-slate-700 bg-slate-800 shadow-card">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.072235948753!2d24.029717!3d49.839683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDUwJzIyLjkiTiAyNMKwMDEnNDcuMCJF!5e0!3m2!1suk!2sua!4v1710000000000!5m2!1suk!2sua"
-                title="Інтерактивна карта: офіс Coin Flow, Львів"
-                class="size-full border-0"
-                allowfullscreen
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-              ></iframe>
-            </div>
-          </section>
-
-          <!-- 2. Відео зі стороннього хостингу (YouTube, режим без cookie) -->
+          <!-- 1. Відео зі стороннього хостингу (YouTube, режим без cookie) -->
           <section id="promo-video" aria-labelledby="promo-video-title">
-            <h2 id="promo-video-title" class="font-heading text-2xl leading-heading font-semibold text-slate-50">Корисне відео</h2>
-            <p class="mt-2 text-slate-400">Відео з YouTube у пропорції 16:9 про фінансову зрілість.</p>
+            <h2 id="promo-video-title" class="font-heading text-2xl leading-heading font-semibold text-slate-50">Відео про фінансову зрілість</h2>
+            <p class="mt-2 text-slate-400">Про гроші в стосунках і планування спільного бюджету (YouTube).</p>
             <div class="mt-4 aspect-video w-full max-w-3xl overflow-hidden rounded-xl border border-slate-700 bg-slate-800 shadow-card">
               <iframe
                 src="https://www.youtube-nocookie.com/embed/VmX7Pqh-enw"
@@ -316,10 +299,10 @@
             </div>
           </section>
 
-          <!-- 3. Нативне HTML5-відео (локальний файл) -->
+          <!-- 2. Нативне HTML5-відео (локальний файл) -->
           <section id="native-video" aria-labelledby="native-video-title">
-            <h2 id="native-video-title" class="font-heading text-2xl leading-heading font-semibold text-slate-50">Відео з власного сервера</h2>
-            <p class="mt-2 text-slate-400">Нативний тег <code>video</code>: файл лежить у проєкті, без сторонніх сервісів.</p>
+            <h2 id="native-video-title" class="font-heading text-2xl leading-heading font-semibold text-slate-50">Coin Flow у русі</h2>
+            <p class="mt-2 text-slate-400">Анімація сервісу: повзунки, сценарії й накопичення. Відео лежить на нашому сервері.</p>
             <div class="mt-4 aspect-video w-full max-w-3xl overflow-hidden rounded-xl border border-slate-700 bg-slate-800 shadow-card">
               <video class="size-full object-cover" controls muted loop playsinline preload="metadata">
                 <source src="assets/images/hero.mp4" type="video/mp4">
@@ -327,11 +310,29 @@
               </video>
             </div>
           </section>
+
+          <!-- 3. Інтерактивна карта (iframe) -->
+          <section id="map" aria-labelledby="map-title">
+            <h2 id="map-title" class="font-heading text-2xl leading-heading font-semibold text-slate-50">Де нас знайти</h2>
+            <p class="mt-2 text-slate-400">Офіс Coin Flow у Львові. Приходьте на консультацію або напишіть на hello@coinflow.ua.</p>
+            <div class="mt-4 h-80 w-full md:h-[450px] overflow-hidden rounded-xl border border-slate-700 bg-slate-800 shadow-card">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.072235948753!2d24.029717!3d49.839683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDUwJzIyLjkiTiAyNMKwMDEnNDcuMCJF!5e0!3m2!1suk!2sua!4v1710000000000!5m2!1suk!2sua"
+                title="Інтерактивна карта: офіс Coin Flow, Львів"
+                class="size-full border-0"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+              ></iframe>
+            </div>
+          </section>
         </div>
 
-        <!-- 4. Динамічний інформер: курс валют НБУ (скрипт підключається асинхронно) -->
+        <!-- 4. Динамічний інформер: курс валют НБУ і конвертер (скрипт підключається асинхронно) -->
         <aside id="rates" aria-labelledby="rates-title" class="h-fit rounded-xl border border-slate-700 bg-slate-800 p-6 lg:sticky lg:top-24">
           <h2 id="rates-title" class="font-heading text-2xl leading-heading font-semibold text-slate-50">Курс валют НБУ</h2>
+          <p class="mt-2 text-sm text-slate-400">Враховуйте курс, якщо частина витрат чи заощаджень у валюті.</p>
           <dl class="mt-4 flex flex-col gap-3">
             <div class="flex items-baseline justify-between gap-4 border-b border-slate-700 pb-3">
               <dt class="text-slate-400">Долар США, USD</dt>
@@ -343,6 +344,29 @@
             </div>
           </dl>
           <p role="status" data-rates-status class="mt-4 text-sm text-slate-400">Завантаження курсів…</p>
+
+          <div class="mt-5 border-t border-slate-700 pt-5">
+            <label for="uah-amount" class="font-semibold text-slate-50">Скільки це у валюті?</label>
+            <p id="uah-hint" class="mt-1 text-sm text-slate-400">Наприклад, ваш безпечний ліміт на день.</p>
+            <div class="mt-3 flex items-center gap-2">
+              <input
+                type="number" id="uah-amount" inputmode="decimal" min="0" step="any" value="450"
+                aria-describedby="uah-hint"
+                class="min-h-12 w-full min-w-0 rounded-md border border-slate-700 bg-slate-900 px-4 text-base text-slate-50 focus:border-brand-300 focus:ring-3 focus:ring-brand-300/35 focus:outline-none"
+              >
+              <span class="text-slate-300" aria-hidden="true">₴</span>
+            </div>
+            <dl class="mt-3 flex flex-col gap-2 text-sm">
+              <div class="flex items-baseline justify-between gap-4">
+                <dt class="text-slate-400">У доларах</dt>
+                <dd class="font-semibold text-slate-50"><output data-converted="USD" for="uah-amount">—</output></dd>
+              </div>
+              <div class="flex items-baseline justify-between gap-4">
+                <dt class="text-slate-400">У євро</dt>
+                <dd class="font-semibold text-slate-50"><output data-converted="EUR" for="uah-amount">—</output></dd>
+              </div>
+            </dl>
+          </div>
           <script src="assets/js/rates.js" defer></script>
         </aside>
       </div>
