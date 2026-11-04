@@ -14,231 +14,261 @@
   </head>
   <body class="flex min-h-screen flex-col bg-background font-sans text-slate-50 antialiased" id="top">
     <a
-          href="#main"
-          class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-brand-500 focus:px-4 focus:py-2 focus:font-semibold focus:text-slate-950"
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-brand-500 focus:px-4 focus:py-2 focus:font-semibold focus:text-slate-950"
+    >
+      Перейти до основного вмісту
+    </a>
+
+    <!-- Header: mobile — логотип + гамбургер; md і вище — логотип + навігація + CTA -->
+    <header
+      class="sticky top-0 z-40 border-b border-white/10 bg-slate-950 print:hidden"
+    >
+      <div
+        class="flex h-16 items-center justify-between gap-6 px-4 md:px-6 lg:px-10 2xl:px-16"
+      >
+        <a
+          href="index.html"
+          class="flex min-h-11 shrink-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-400"
         >
-          Перейти до основного вмісту
+          <img
+            src="assets/images/logo.svg"
+            alt="Coin Flow — на головну"
+            width="48"
+            height="48"
+            decoding="async"
+            class="h-10 w-auto md:h-12"
+          />
         </a>
 
-        <!-- Header: mobile — логотип + гамбургер; md і вище — логотип + навігація + CTA -->
-        <header class="sticky top-0 z-40 print:hidden border-b border-white/10 bg-slate-950">
-          <div
-            class="flex h-16 items-center justify-between gap-6 px-4 md:px-6 lg:px-10 2xl:px-16"
-          >
-            <a
-              href="index.html"
-              class="flex min-h-11 shrink-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-400"
-            >
-              <img
-                src="assets/images/logo.svg"
-                alt="Coin Flow — на головну"
-                width="48" height="48" decoding="async" class="h-10 w-auto md:h-12">
-            </a>
+        <!-- Навігація для десктопа: прихована на mobile, видима від md -->
+        <nav aria-label="Основна навігація" class="hidden md:block">
+          <ul class="flex items-center gap-1">
+            <li>
+              <a
+                href="index.html#simulator"
+                class="block rounded-md px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-brand-400"
+              >
+                Симулятор
+              </a>
+            </li>
+            <li>
+              <a
+                href="index.html#benefits"
+                class="block rounded-md px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+              >
+                Переваги
+              </a>
+            </li>
+            <li>
+              <a
+                href="index.html#reviews"
+                class="block rounded-md px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+              >
+                Відгуки
+              </a>
+            </li>
+            <li class="group relative">
+              <button
+                type="button"
+                aria-haspopup="true"
+                class="flex items-center gap-1.5 rounded-md px-4 py-2 text-sm font-medium text-slate-300 transition-colors group-focus-within:text-white hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+              >
+                Більше
+                <svg
+                  class="size-3 transition-transform group-focus-within:rotate-180 group-hover:rotate-180"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M2 4.5 6 8.5l4-4" />
+                </svg>
+              </button>
+              <!-- Випадне меню: відкривається при наведенні і при фокусі з клавіатури -->
+              <div
+                class="invisible absolute top-full left-0 min-w-48 pt-2 opacity-0 transition-[opacity,visibility] group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100"
+              >
+                <ul
+                  class="rounded-lg border border-white/10 bg-slate-900 p-2 shadow-lg"
+                >
+                  <li>
+                    <a
+                      href="pricing.html"
+                      class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                      >Прайс</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="embed.html"
+                      class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                      >Вбудований контент</a
+                    >
+                  </li>
+                  <li class="mb-1 border-b border-white/10 pb-1">
+                    <a
+                      href="docs.html"
+                      class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                      >Документація</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="index.html#scenarios"
+                      class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                      >Сценарії</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="index.html#early-access"
+                      class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                      >Ранній доступ</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="index.html#faq"
+                      class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                      >FAQ</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="index.html#contacts"
+                      class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                      >Контакти</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
 
-            <!-- Навігація для десктопа: прихована на mobile, видима від md -->
-            <nav aria-label="Основна навігація" class="hidden md:block">
-              <ul class="flex items-center gap-1">
+        <div class="flex items-center gap-3">
+          <!-- CTA: тільки md і вище -->
+          <a
+            href="index.html#early-access"
+            class="hidden min-h-11 items-center justify-center rounded-md bg-brand-500 px-5 py-2 text-sm font-semibold whitespace-nowrap text-slate-950 transition-colors hover:bg-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 active:bg-brand-700 md:inline-flex"
+          >
+            <span lang="en">Start Free Trial</span>
+          </a>
+
+          <!-- Гамбургер: тільки mobile. details/summary працює без JavaScript -->
+          <details class="group md:hidden">
+            <summary
+              class="flex size-11 cursor-pointer list-none items-center justify-center rounded-md text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-brand-400 [&::-webkit-details-marker]:hidden"
+            >
+              <span class="sr-only">Меню</span>
+              <svg
+                class="size-6 group-open:hidden"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+              <svg
+                class="hidden size-6 group-open:block"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
+            </summary>
+
+            <nav
+              aria-label="Мобільна навігація"
+              class="absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-white/10 bg-slate-950 px-4 pt-2 pb-5 shadow-lg"
+            >
+              <ul class="flex flex-col">
                 <li>
                   <a
                     href="index.html#simulator"
-                    class="block rounded-md px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-brand-400"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >Симулятор</a
                   >
-                    Симулятор
-                  </a>
                 </li>
                 <li>
                   <a
                     href="index.html#benefits"
-                    class="block rounded-md px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >Переваги</a
                   >
-                    Переваги
-                  </a>
                 </li>
                 <li>
                   <a
                     href="index.html#reviews"
-                    class="block rounded-md px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >Відгуки</a
                   >
-                    Відгуки
-                  </a>
                 </li>
-                <li class="group relative">
-                  <button
-                    type="button"
-                    aria-haspopup="true"
-                    class="flex items-center gap-1.5 rounded-md px-4 py-2 text-sm font-medium text-slate-300 transition-colors group-focus-within:text-white hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                <li>
+                  <a
+                    href="index.html#scenarios"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >Сценарії</a
                   >
-                    Більше
-                    <svg
-                      class="size-3 transition-transform group-focus-within:rotate-180 group-hover:rotate-180"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M2 4.5 6 8.5l4-4" />
-                    </svg>
-                  </button>
-                  <!-- Випадне меню: відкривається при наведенні і при фокусі з клавіатури -->
-                  <div
-                    class="invisible absolute top-full left-0 min-w-48 pt-2 opacity-0 transition-[opacity,visibility] group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100"
+                </li>
+                <li>
+                  <a
+                    href="index.html#faq"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >FAQ</a
                   >
-                    <ul
-                      class="rounded-lg border border-white/10 bg-slate-900 p-2 shadow-lg"
-                    >
-                      <li>
-                        <a href="pricing.html" class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400">Прайс</a>
-                      </li>
-                      <li>
-                        <a href="embed.html" aria-current="page" class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400">Вбудований контент</a>
-                      </li>
-                      <li class="mb-1 border-b border-white/10 pb-1">
-                        <a href="docs.html" class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400">Документація</a>
-                      </li>
-                      <li>
-                        <a
-                          href="index.html#scenarios"
-                          class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
-                          >Сценарії</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="index.html#early-access"
-                          class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
-                          >Ранній доступ</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="index.html#faq"
-                          class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
-                          >FAQ</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="index.html#contacts"
-                          class="block rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
-                          >Контакти</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
+                </li>
+                <li>
+                  <a
+                    href="index.html#contacts"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >Контакти</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="pricing.html"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >Прайс</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="embed.html"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >Контент карта</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="docs.html"
+                    class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
+                    >Документація</a
+                  >
                 </li>
               </ul>
-            </nav>
-
-            <div class="flex items-center gap-3">
-              <!-- CTA: тільки md і вище -->
               <a
                 href="index.html#early-access"
-                class="hidden min-h-11 items-center justify-center rounded-md bg-brand-500 px-5 py-2 text-sm font-semibold whitespace-nowrap text-slate-950 transition-colors hover:bg-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 active:bg-brand-700 md:inline-flex"
+                class="mt-4 flex min-h-11 w-full items-center justify-center rounded-md bg-brand-500 px-5 py-2 text-sm font-semibold text-slate-950 transition-colors hover:bg-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 active:bg-brand-700"
               >
                 <span lang="en">Start Free Trial</span>
               </a>
-
-              <!-- Гамбургер: тільки mobile. details/summary працює без JavaScript -->
-              <details class="group md:hidden">
-                <summary
-                  class="flex size-11 cursor-pointer list-none items-center justify-center rounded-md text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-brand-400 [&::-webkit-details-marker]:hidden"
-                >
-                  <span class="sr-only">Меню</span>
-                  <svg
-                    class="size-6 group-open:hidden"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M4 7h16M4 12h16M4 17h16" />
-                  </svg>
-                  <svg
-                    class="hidden size-6 group-open:block"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M6 6l12 12M18 6 6 18" />
-                  </svg>
-                </summary>
-
-                <nav
-                  aria-label="Мобільна навігація"
-                  class="absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-white/10 bg-slate-950 px-4 pt-2 pb-5 shadow-lg"
-                >
-                  <ul class="flex flex-col">
-                    <li>
-                      <a
-                        href="index.html#simulator"
-                        class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
-                        >Симулятор</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="index.html#benefits"
-                        class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
-                        >Переваги</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="index.html#reviews"
-                        class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
-                        >Відгуки</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="index.html#scenarios"
-                        class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
-                        >Сценарії</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="index.html#faq"
-                        class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
-                        >FAQ</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="index.html#contacts"
-                        class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400"
-                        >Контакти</a
-                      >
-                    </li>
-                    <li>
-                      <a href="pricing.html" class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400">Прайс</a>
-                    </li>
-                    <li>
-                      <a href="embed.html" aria-current="page" class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400">Вбудований контент</a>
-                    </li>
-                    <li>
-                      <a href="docs.html" class="flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400">Документація</a>
-                    </li>
-                  </ul>
-                  <a
-                    href="index.html#early-access"
-                    class="mt-4 flex min-h-11 w-full items-center justify-center rounded-md bg-brand-500 px-5 py-2 text-sm font-semibold text-slate-950 transition-colors hover:bg-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 active:bg-brand-700"
-                  >
-                    <span lang="en">Start Free Trial</span>
-                  </a>
-                </nav>
-              </details>
-            </div>
-          </div>
-        </header>
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
 
     <main id="main" tabindex="-1" class="mx-auto w-full max-w-6xl flex-1 px-4 py-16 md:px-6 md:py-24">
       <div class="mb-12 md:mb-16">
@@ -271,11 +301,11 @@
           <!-- 2. Відео зі стороннього хостингу (YouTube, режим без cookie) -->
           <section id="promo-video" aria-labelledby="promo-video-title">
             <h2 id="promo-video-title" class="font-heading text-2xl leading-heading font-semibold text-slate-50">Корисне відео</h2>
-            <p class="mt-2 text-slate-400">Відео з YouTube у пропорції 16:9 про планування часу й делегування.</p>
+            <p class="mt-2 text-slate-400">Відео з YouTube у пропорції 16:9 про фінансову зрілість.</p>
             <div class="mt-4 aspect-video w-full max-w-3xl overflow-hidden rounded-xl border border-slate-700 bg-slate-800 shadow-card">
               <iframe
-                src="https://www.youtube-nocookie.com/embed/jtI3IKW-nmI"
-                title="Відео подкасту ВаняТаня: вартість часу, прокрастинація, делегування та панічні атаки"
+                src="https://www.youtube-nocookie.com/embed/VmX7Pqh-enw"
+                title="Відео: Як досягти фінансової зрілості? Все про гроші в стосунках, Кушнерук та Довгань"
                 class="size-full border-0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
@@ -318,290 +348,304 @@
       </div>
     </main>
 
-    <footer id="contacts" class="print:hidden border-t border-slate-800 bg-slate-950">
-          <div class="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
-            <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
-              <!-- 1. Логотип і короткий опис -->
-              <div>
-                <a
-                  href="index.html"
-                  class="inline-block rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-400"
-                >
-                  <img
-                    src="assets/images/logo.svg"
-                    alt="Coin Flow — на головну"
-                    width="48" height="48" loading="lazy" decoding="async" class="h-12 w-auto">
-                </a>
-                <p class="mt-4 max-w-xs text-slate-400">
-                  Coin Flow розраховує безпечний денний ліміт витрат за хвилину —
-                  без реєстрації й зайвого стресу.
-                </p>
-              </div>
-    
-              <!-- 2. Додаткова навігація -->
-              <nav aria-labelledby="footer-nav-title">
-                <h2
-                  id="footer-nav-title"
-                  class="mb-3 font-heading text-lg font-semibold text-slate-50"
-                >
-                  Навігація
-                </h2>
-                <ul>
-                  <li>
-                    <a
-                      href="index.html#simulator"
-                      class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
-                      >Симулятор</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="index.html#benefits"
-                      class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
-                      >Переваги</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="index.html#reviews"
-                      class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
-                      >Відгуки</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="index.html#faq"
-                      class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
-                      >FAQ</a
-                    >
-                  </li>
-                </ul>
-              </nav>
-    
-              <!-- 3. Корисні посилання -->
-              <nav aria-labelledby="footer-links-title">
-                <h2
-                  id="footer-links-title"
-                  class="mb-3 font-heading text-lg font-semibold text-slate-50"
-                >
-                  Корисні посилання
-                </h2>
-                <ul>
-                  <li>
-                    <a
-                      href="index.html#how"
-                      class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
-                      >Як працює розрахунок</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="index.html#scenarios"
-                      class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
-                      >Сценарії накопичення</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="index.html#early-access"
-                      class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
-                      >Ранній доступ</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="index.html#capabilities"
-                      class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
-                      >Можливості сервісу</a
-                    >
-                  </li>
-                </ul>
-              </nav>
-    
-              <!-- 4. Контакти і соціальні мережі -->
-              <div>
-                <h2 class="mb-3 font-heading text-lg font-semibold text-slate-50">
-                  Контакти
-                </h2>
-                <address class="flex flex-col text-slate-400 not-italic">
-                  <p class="flex min-h-9 items-center gap-3">
-                    <i
-                      class="fa-solid fa-location-dot fa-fw text-brand-400"
-                      aria-hidden="true"
-                    ></i>
-                    Вул. Лукаша, Львів 00001
-                  </p>
-                  <p class="flex items-center gap-3">
-                    <i
-                      class="fa-solid fa-phone fa-fw text-brand-400"
-                      aria-hidden="true"
-                    ></i>
-                    <a
-                      href="tel:+380800123456"
-                      class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
-                      >0 800 123 456</a
-                    >
-                  </p>
-                  <p class="flex items-center gap-3">
-                    <i
-                      class="fa-solid fa-envelope fa-fw text-brand-400"
-                      aria-hidden="true"
-                    ></i>
-                    <a
-                      href="mailto:hello@coinflow.ua"
-                      class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
-                      >hello@coinflow.ua</a
-                    >
-                  </p>
-                </address>
-    
-                <h3
-                  class="mt-5 mb-3 text-sm font-semibold tracking-wide text-slate-300 uppercase"
-                >
-                  Соціальні мережі
-                </h3>
-                <ul class="flex flex-wrap gap-2">
-                  <li>
-                    <a
-                      href="https://www.facebook.com/"
-                      aria-label="Facebook"
-                      class="flex size-11 items-center justify-center rounded-md border border-slate-700 text-slate-300 transition-colors hover:border-brand-400 hover:text-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:size-10"
-                      ><i
-                        class="fa-brands fa-facebook-f fa-fw"
-                        aria-hidden="true"
-                      ></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.instagram.com/"
-                      aria-label="Instagram"
-                      class="flex size-11 items-center justify-center rounded-md border border-slate-700 text-slate-300 transition-colors hover:border-brand-400 hover:text-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:size-10"
-                      ><i
-                        class="fa-brands fa-instagram fa-fw"
-                        aria-hidden="true"
-                      ></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://x.com/"
-                      aria-label="X"
-                      class="flex size-11 items-center justify-center rounded-md border border-slate-700 text-slate-300 transition-colors hover:border-brand-400 hover:text-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:size-10"
-                      ><i
-                        class="fa-brands fa-x-twitter fa-fw"
-                        aria-hidden="true"
-                      ></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/"
-                      aria-label="LinkedIn"
-                      class="flex size-11 items-center justify-center rounded-md border border-slate-700 text-slate-300 transition-colors hover:border-brand-400 hover:text-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:size-10"
-                      ><i
-                        class="fa-brands fa-linkedin-in fa-fw"
-                        aria-hidden="true"
-                      ></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.youtube.com/"
-                      aria-label="YouTube"
-                      class="flex size-11 items-center justify-center rounded-md border border-slate-700 text-slate-300 transition-colors hover:border-brand-400 hover:text-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:size-10"
-                      ><i class="fa-brands fa-youtube fa-fw" aria-hidden="true"></i
-                    ></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-    
-            <!-- Підписка на розсилку -->
-            <form
-              class="mt-10 flex flex-col gap-4 rounded-xl border border-slate-800 bg-slate-900 p-6 md:flex-row md:items-center md:justify-between"
-              action="#"
-              method="post"
-              data-subscribe
-              aria-labelledby="newsletter-title"
+    <footer
+      id="contacts"
+      class="border-t border-slate-800 bg-slate-950 print:hidden"
+    >
+      <div class="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <!-- 1. Логотип і короткий опис -->
+          <div>
+            <a
+              href="index.html"
+              class="inline-block rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-400"
             >
-              <div class="md:max-w-sm">
-                <h2
-                  id="newsletter-title"
-                  class="font-heading text-lg font-semibold text-slate-50"
-                >
-                  Підписка на розсилку
-                </h2>
-                <p id="newsletter-note" class="mt-1 text-sm text-slate-400">
-                  Новини продукту й поради з планування бюджету — раз на місяць. Без спаму.
-                </p>
-              </div>
-              <div class="flex w-full flex-col gap-3 sm:flex-row md:max-w-md">
-                <label for="newsletter-email" class="sr-only">Ваш email</label>
-                <input
-                  type="email"
-                  id="newsletter-email"
-                  name="email"
-                  required
-                  autocomplete="email"
-                  placeholder="Ваш email"
-                  aria-describedby="newsletter-note"
-                  class="min-h-12 w-full min-w-0 flex-1 rounded-md border border-slate-700 bg-slate-950 px-4 text-base text-slate-50 placeholder:text-slate-400 focus:border-brand-300 focus:ring-3 focus:ring-brand-300/35 focus:outline-none"
-                >
-                <button
-                  type="submit"
-                  class="inline-flex min-h-12 items-center justify-center rounded-md border-2 border-transparent bg-brand-500 px-5.5 py-2.5 text-base font-semibold whitespace-nowrap text-slate-950 transition-colors duration-150 hover:bg-brand-400 focus-visible:ring-3 focus-visible:ring-brand-300 focus-visible:outline-none active:bg-brand-700"
-                >
-                  Підписатися
-                </button>
-              </div>
-            </form>
-
-            <!-- Нижня смуга: юридичні посилання, статус системи і копірайт -->
-            <div
-              class="mt-10 flex flex-col gap-4 border-t border-slate-800 pt-6 lg:flex-row lg:items-center lg:justify-between"
-            >
-              <nav aria-label="Юридична інформація">
-                <ul
-                  class="flex flex-col md:flex-row md:flex-wrap md:gap-x-6"
-                >
-                  <li>
-                    <a
-                      href="#"
-                      class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400"
-                      >Політика приватності</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400"
-                      >Умови використання</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400"
-                      >Налаштування cookies</a
-                    >
-                  </li>
-                </ul>
-              </nav>
-              <div class="flex flex-col gap-2 lg:items-end">
-                <p role="status" class="flex items-center gap-2 text-sm text-slate-300">
-                  <span class="relative flex size-2.5" aria-hidden="true">
-                    <span class="absolute inline-flex size-full animate-ping rounded-full bg-brand-400 opacity-60 motion-reduce:animate-none"></span>
-                    <span class="relative inline-flex size-2.5 rounded-full bg-brand-400"></span>
-                  </span>
-                  <span lang="en">System Status: All systems operational</span>
-                </p>
-                <p class="text-sm text-slate-400">
-                  © 2026 Coin Flow. Всі права захищено.
-                </p>
-              </div>
-            </div>
+              <img
+                src="assets/images/logo.svg"
+                alt="Coin Flow — на головну"
+                width="48"
+                height="48"
+                loading="lazy"
+                decoding="async"
+                class="h-12 w-auto"
+              />
+            </a>
+            <p class="mt-4 max-w-xs text-slate-400">
+              Coin Flow розраховує безпечний денний ліміт витрат за хвилину —
+              без реєстрації й зайвого стресу.
+            </p>
           </div>
-        </footer>
+
+          <!-- 2. Додаткова навігація -->
+          <nav aria-labelledby="footer-nav-title">
+            <h2
+              id="footer-nav-title"
+              class="mb-3 font-heading text-lg font-semibold text-slate-50"
+            >
+              Навігація
+            </h2>
+            <ul>
+              <li>
+                <a
+                  href="index.html#simulator"
+                  class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
+                  >Симулятор</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#benefits"
+                  class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
+                  >Переваги</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#reviews"
+                  class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
+                  >Відгуки</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#faq"
+                  class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- 3. Корисні посилання -->
+          <nav aria-labelledby="footer-links-title">
+            <h2
+              id="footer-links-title"
+              class="mb-3 font-heading text-lg font-semibold text-slate-50"
+            >
+              Корисні посилання
+            </h2>
+            <ul>
+              <li>
+                <a
+                  href="index.html#how"
+                  class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
+                  >Як працює розрахунок</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#scenarios"
+                  class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
+                  >Сценарії накопичення</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#early-access"
+                  class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
+                  >Ранній доступ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#capabilities"
+                  class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
+                  >Можливості сервісу</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- 4. Контакти і соціальні мережі -->
+          <div>
+            <h2 class="mb-3 font-heading text-lg font-semibold text-slate-50">
+              Контакти
+            </h2>
+            <address class="flex flex-col text-slate-400 not-italic">
+              <p class="flex min-h-9 items-center gap-3">
+                <i
+                  class="fa-solid fa-location-dot fa-fw text-brand-400"
+                  aria-hidden="true"
+                ></i>
+                Вул. Лукаша, Львів 00001
+              </p>
+              <p class="flex items-center gap-3">
+                <i
+                  class="fa-solid fa-phone fa-fw text-brand-400"
+                  aria-hidden="true"
+                ></i>
+                <a
+                  href="tel:+380800123456"
+                  class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
+                  >0 800 123 456</a
+                >
+              </p>
+              <p class="flex items-center gap-3">
+                <i
+                  class="fa-solid fa-envelope fa-fw text-brand-400"
+                  aria-hidden="true"
+                ></i>
+                <a
+                  href="mailto:hello@coinflow.ua"
+                  class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:min-h-9"
+                  >hello@coinflow.ua</a
+                >
+              </p>
+            </address>
+
+            <h3
+              class="mt-5 mb-3 text-sm font-semibold tracking-wide text-slate-300 uppercase"
+            >
+              Соціальні мережі
+            </h3>
+            <ul class="flex flex-wrap gap-2">
+              <li>
+                <a
+                  href="https://www.facebook.com/"
+                  aria-label="Facebook"
+                  class="flex size-11 items-center justify-center rounded-md border border-slate-700 text-slate-300 transition-colors hover:border-brand-400 hover:text-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:size-10"
+                  ><i
+                    class="fa-brands fa-facebook-f fa-fw"
+                    aria-hidden="true"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/"
+                  aria-label="Instagram"
+                  class="flex size-11 items-center justify-center rounded-md border border-slate-700 text-slate-300 transition-colors hover:border-brand-400 hover:text-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:size-10"
+                  ><i
+                    class="fa-brands fa-instagram fa-fw"
+                    aria-hidden="true"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://x.com/"
+                  aria-label="X"
+                  class="flex size-11 items-center justify-center rounded-md border border-slate-700 text-slate-300 transition-colors hover:border-brand-400 hover:text-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:size-10"
+                  ><i
+                    class="fa-brands fa-x-twitter fa-fw"
+                    aria-hidden="true"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/"
+                  aria-label="LinkedIn"
+                  class="flex size-11 items-center justify-center rounded-md border border-slate-700 text-slate-300 transition-colors hover:border-brand-400 hover:text-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:size-10"
+                  ><i
+                    class="fa-brands fa-linkedin-in fa-fw"
+                    aria-hidden="true"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/"
+                  aria-label="YouTube"
+                  class="flex size-11 items-center justify-center rounded-md border border-slate-700 text-slate-300 transition-colors hover:border-brand-400 hover:text-brand-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 md:size-10"
+                  ><i class="fa-brands fa-youtube fa-fw" aria-hidden="true"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Підписка на розсилку -->
+        <form
+          class="mt-10 flex flex-col gap-4 rounded-xl border border-slate-800 bg-slate-900 p-6 md:flex-row md:items-center md:justify-between"
+          action="#"
+          method="post"
+          data-subscribe
+          aria-labelledby="newsletter-title"
+        >
+          <div class="md:max-w-sm">
+            <h2
+              id="newsletter-title"
+              class="font-heading text-lg font-semibold text-slate-50"
+            >
+              Підписка на розсилку
+            </h2>
+            <p id="newsletter-note" class="mt-1 text-sm text-slate-400">
+              Новини продукту й поради з планування бюджету — раз на місяць. Без
+              спаму.
+            </p>
+          </div>
+          <div class="flex w-full flex-col gap-3 sm:flex-row md:max-w-md">
+            <label for="newsletter-email" class="sr-only">Ваш email</label>
+            <input
+              type="email"
+              id="newsletter-email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="Ваш email"
+              aria-describedby="newsletter-note"
+              class="min-h-12 w-full min-w-0 flex-1 rounded-md border border-slate-700 bg-slate-950 px-4 text-base text-slate-50 placeholder:text-slate-400 focus:border-brand-300 focus:ring-3 focus:ring-brand-300/35 focus:outline-none"
+            />
+            <button
+              type="submit"
+              class="inline-flex min-h-12 items-center justify-center rounded-md border-2 border-transparent bg-brand-500 px-5.5 py-2.5 text-base font-semibold whitespace-nowrap text-slate-950 transition-colors duration-150 hover:bg-brand-400 focus-visible:ring-3 focus-visible:ring-brand-300 focus-visible:outline-none active:bg-brand-700"
+            >
+              Підписатися
+            </button>
+          </div>
+        </form>
+
+        <!-- Нижня смуга: юридичні посилання, статус системи і копірайт -->
+        <div
+          class="mt-10 flex flex-col gap-4 border-t border-slate-800 pt-6 lg:flex-row lg:items-center lg:justify-between"
+        >
+          <nav aria-label="Юридична інформація">
+            <ul class="flex flex-col md:flex-row md:flex-wrap md:gap-x-6">
+              <li>
+                <a
+                  href="#"
+                  class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400"
+                  >Політика приватності</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400"
+                  >Умови використання</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="inline-flex min-h-11 items-center rounded-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400"
+                  >Налаштування cookies</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div class="flex flex-col gap-2 lg:items-end">
+            <p
+              role="status"
+              class="flex items-center gap-2 text-sm text-slate-300"
+            >
+              <span class="relative flex size-2.5" aria-hidden="true">
+                <span
+                  class="absolute inline-flex size-full animate-ping rounded-full bg-brand-400 opacity-60 motion-reduce:animate-none"
+                ></span>
+                <span
+                  class="relative inline-flex size-2.5 rounded-full bg-brand-400"
+                ></span>
+              </span>
+              <span lang="en">System Status: All systems operational</span>
+            </p>
+            <p class="text-sm text-slate-400">
+              © 2026 Coin Flow. Всі права захищено.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
