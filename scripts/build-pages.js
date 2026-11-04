@@ -164,11 +164,11 @@ const embedMain = `    <main id="main" tabindex="-1" class="mx-auto w-full max-w
           <!-- 2. Відео зі стороннього хостингу (YouTube, режим без cookie) -->
           <section id="promo-video" aria-labelledby="promo-video-title">
             <h2 id="promo-video-title" class="${H2}">Корисне відео</h2>
-            <p class="${SUB}">Відео з YouTube у пропорції 16:9 про планування часу й делегування.</p>
+            <p class="${SUB}">Відео з YouTube у пропорції 16:9 про фінансову зрілість.</p>
             <div class="mt-4 aspect-video w-full max-w-3xl ${BOX}">
               <iframe
-                src="https://www.youtube-nocookie.com/embed/jtI3IKW-nmI"
-                title="Відео подкасту ВаняТаня: вартість часу, прокрастинація, делегування та панічні атаки"
+                src="https://www.youtube-nocookie.com/embed/VmX7Pqh-enw"
+                title="Відео: Як досягти фінансової зрілості? Все про гроші в стосунках, Кушнерук та Довгань"
                 class="${FRAME}"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
