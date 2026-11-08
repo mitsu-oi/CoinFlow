@@ -11,6 +11,7 @@ Coin Flow — лендінг-сервіс «планувальник денно�
 - **Сценарії накопичення:** агресивний (70 %), збалансований (50 %), консервативний (30 %) від вільних коштів.
 - **Діаграма накопичення**, збереження результату у PDF (друк), посилання зі збереженим станом симулятора.
 - **Форми** раннього доступу та розсилки з валідацією email.
+- **Форма зворотного зв’язку** (`contact.html`): адаптивна форма з клієнтською валідацією (RegEx для email і телефону +380), станами normal/focus/error/success та доступним модальним вікном.
 - **Сторінка з ембеддингом** (`embed.html`): карта Google Maps, відео YouTube та нативне відео, інформер курсу валют НБУ.
 - **Сторінки** «Прайс» і «Документація».
 - Адаптивна верстка (mobile-first), семантична розмітка, доступність (WCAG 2.2 AA).
@@ -24,6 +25,7 @@ HTML5 · Tailwind CSS v4 · ванільний JavaScript · Netlify / GitHub Pa
 ```
 ├── index.html            головна сторінка (лендінг)
 ├── embed.html            вбудований контент: карта, відео, інформер
+├── contact.html          форма зворотного зв’язку з валідацією (assets/js/validation.js)
 ├── pricing.html          прайс
 ├── docs.html             документація
 ├── css/
@@ -45,7 +47,7 @@ HTML5 · Tailwind CSS v4 · ванільний JavaScript · Netlify / GitHub Pa
 npm install            # встановити залежності
 npm run watch:css      # стежити за змінами й перезбирати css/tailwind.css
 npm run build:css      # одноразова мінімізована збірка CSS
-npm run build:pages    # згенерувати pricing.html, docs.html, embed.html
+npm run build:pages    # згенерувати pricing.html, docs.html, embed.html, contact.html
 ```
 
 Для перегляду відкрийте `index.html` у браузері або запустіть розширення Live Server у VS Code.

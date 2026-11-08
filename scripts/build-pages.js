@@ -235,7 +235,100 @@ const embedMain = `    <main id="main" tabindex="-1" class="mx-auto w-full max-w
       </div>
     </main>`;
 
+// ---------- Зворотний зв'язок (ЛР №9: форма, клієнтська валідація, модальне вікно) ----------
+const INPUT = 'min-h-12 w-full rounded-md border border-slate-700 bg-slate-900 px-4 pr-11 text-base text-slate-50 transition-colors duration-150 hover:border-slate-500 focus:ring-3 focus:ring-brand-300/60 focus:outline-none';
+const LABEL = 'mb-2 block text-sm font-semibold text-slate-50';
+const ERROR = 'mt-1.5 hidden text-sm text-red-400';
+const OK_ICON = '<span data-ok class="pointer-events-none absolute top-3.5 right-3.5 hidden text-green-400"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></span>';
+
+// одне поле: label (for = id) + input + іконка успіху + підказка + місце для помилки
+const field = ({ id, label, errId, hint, control, wide }) => `
+          <div${wide ? ' class="md:col-span-2"' : ''}>
+            <label for="${id}" class="${LABEL}">${label}</label>
+            <div class="relative">
+              ${control}
+              ${OK_ICON}
+            </div>${hint ? `
+            <p id="${id}Hint" class="mt-1.5 text-sm text-slate-400">${hint}</p>` : ''}
+            <p id="${errId}" class="${ERROR}"></p>
+          </div>`;
+const describedBy = (id, errId, hint) => `aria-describedby="${hint ? id + 'Hint ' : ''}${errId}" aria-invalid="false"`;
+
+const contactMain = `    <main id="main" tabindex="-1" class="mx-auto w-full max-w-6xl flex-1 px-4 py-16 md:px-6 md:py-24">
+      <div class="mb-12 md:mb-16">
+        <h1 class="${H1}">Зворотний зв’язок</h1>
+        <p class="mt-4 max-w-2xl text-lg text-slate-400">
+          Є питання про розрахунок, пропозиція чи ідея? Напишіть нам, і ми відповімо протягом двох робочих днів.
+          Усі поля обов’язкові.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_20rem]">
+        <section aria-labelledby="feedback-title" class="rounded-xl border border-slate-700 bg-slate-800 p-6 shadow-card md:p-8">
+          <h2 id="feedback-title" class="${H2}">Напишіть нам</h2>
+          <form id="feedbackForm" novalidate class="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">${field({
+            id: 'username', label: 'Ім’я', errId: 'usernameError',
+            control: `<input type="text" id="username" name="username" autocomplete="name" maxlength="60" required class="${INPUT}" ${describedBy('username', 'usernameError')}>`,
+          })}${field({
+            id: 'email', label: 'Електронна пошта', errId: 'emailError',
+            control: `<input type="email" id="email" name="email" autocomplete="email" inputmode="email" required class="${INPUT}" ${describedBy('email', 'emailError')}>`,
+          })}${field({
+            id: 'phone', label: 'Телефон', errId: 'phoneError', hint: 'Формат +380XXXXXXXXX. Пробіли й дужки приберемо самі, а номер із 0 доповнимо до +380.',
+            control: `<input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required class="${INPUT}" ${describedBy('phone', 'phoneError', true)}>`,
+          })}
+          <div>
+            <label for="topic" class="${LABEL}">Тема звернення</label>
+            <select id="topic" name="topic" class="min-h-12 w-full rounded-md border border-slate-700 bg-slate-900 px-4 text-base text-slate-50 transition-colors duration-150 hover:border-slate-500 focus:ring-3 focus:ring-brand-300/60 focus:outline-none">
+              <option value="service">Питання про сервіс</option>
+              <option value="partnership">Співпраця</option>
+              <option value="idea">Пропозиція або ідея</option>
+              <option value="other">Інше</option>
+            </select>
+          </div>${field({
+            id: 'message', label: 'Повідомлення', errId: 'messageError', wide: true, hint: 'Щонайменше 10 символів.',
+            control: `<textarea id="message" name="message" rows="5" maxlength="1000" required class="${INPUT} min-h-32 py-3" ${describedBy('message', 'messageError', true)}></textarea>`,
+          })}
+          <div class="md:col-span-2">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" id="agreement" name="agreement" required class="mt-1 size-5 shrink-0 rounded-sm border border-slate-700 bg-slate-900 accent-brand-500 focus-visible:ring-3 focus-visible:ring-brand-300 focus-visible:outline-none" aria-describedby="agreementError" aria-invalid="false">
+              <label for="agreement" class="text-slate-300">Погоджуюсь на обробку моїх даних відповідно до політики конфіденційності Coin Flow</label>
+            </div>
+            <p id="agreementError" class="${ERROR}"></p>
+          </div>
+          <div class="flex flex-col gap-3 md:col-span-2 md:flex-row md:items-center md:justify-end">
+            <p id="formStatus" role="alert" class="hidden text-sm text-red-400 md:mr-auto"></p>
+            <button type="submit" class="${BTN_PRIMARY} md:w-auto md:min-w-48">Надіслати</button>
+          </div>
+          </form>
+        </section>
+
+        <aside aria-labelledby="contact-aside-title" class="h-fit rounded-xl border border-slate-700 bg-slate-800 p-6 lg:sticky lg:top-24">
+          <h2 id="contact-aside-title" class="${H2}">Контакти</h2>
+          <address class="mt-4 flex flex-col gap-3 text-slate-400 not-italic">
+            <span>Вул. Лукаша, Львів 00001</span>
+            <a href="tel:+380800123456" class="inline-flex min-h-11 items-center text-slate-300 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400">0 800 123 456</a>
+            <a href="mailto:hello@coinflow.ua" class="inline-flex min-h-11 items-center text-slate-300 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400">hello@coinflow.ua</a>
+          </address>
+          <p class="mt-4 border-t border-slate-700 pt-4 text-sm text-slate-400">
+            Це демонстраційна форма: дані перевіряються в браузері й нікуди не надсилаються.
+          </p>
+        </aside>
+      </div>
+      <script src="assets/js/validation.js" defer></script>
+    </main>
+
+    <!-- Модальне вікно успіху (поза main, щоб main можна було зробити inert) -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-4">
+      <div role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalText" class="w-full max-w-md rounded-xl border border-slate-700 bg-slate-800 p-8 text-center shadow-card">
+        <span class="mx-auto flex size-14 items-center justify-center rounded-full bg-brand-500/10 text-2xl text-brand-300"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
+        <h2 id="modalTitle" class="mt-5 font-heading text-2xl leading-heading font-semibold text-slate-50">Дякуємо!</h2>
+        <p id="modalText" class="mt-3 text-slate-400">Форма успішно пройшла клієнтську валідацію. Демонстрація успішного надсилання: дані нікуди не передавалися.</p>
+        <button type="button" id="closeModalBtn" class="${BTN_PRIMARY} mt-6">Закрити</button>
+      </div>
+    </div>`;
+
 fs.writeFileSync(path.join(root, 'embed.html'), page('Корисні матеріали — Coin Flow', 'Курс валют НБУ з конвертером гривні, відео про фінансову зрілість і карта офісу Coin Flow.', embedMain, 'embed.html'));
 fs.writeFileSync(path.join(root, 'pricing.html'), page('Прайс — Coin Flow', 'Тарифи Coin Flow: Free, Pro і Team. Почніть безкоштовно.', pricingMain, 'pricing.html'));
 fs.writeFileSync(path.join(root, 'docs.html'), page('Документація — Coin Flow', 'Документація Coin Flow: формула розрахунку, сценарії накопичення, збереження результату й конфіденційність.', docsMain, 'docs.html'));
-console.log('Створено: pricing.html, docs.html');
+fs.writeFileSync(path.join(root, 'contact.html'), page('Зворотний зв’язок — Coin Flow', 'Форма зворотного зв’язку Coin Flow: напишіть нам, і ми відповімо протягом двох робочих днів.', contactMain, 'contact.html'));
+console.log('Створено: embed.html, pricing.html, docs.html, contact.html');

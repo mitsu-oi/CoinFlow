@@ -4,7 +4,7 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 const out = path.resolve(root, '..', 'coin-flow-deploy');
-const include = ['index.html', 'pricing.html', 'docs.html', 'embed.html', 'css/tailwind.css', 'css/style.css', 'assets'];
+const include = ['index.html', 'pricing.html', 'docs.html', 'embed.html', 'contact.html', 'css/tailwind.css', 'css/style.css', 'assets'];
 
 fs.rmSync(out, { recursive: true, force: true });
 for (const item of include) {
@@ -15,7 +15,7 @@ for (const item of include) {
 // дає «Stray start tag script». Закриваючі теги </body> і </html> у HTML необов'язкові, тому в копії для
 // публікації їх прибираємо: дописаний скрипт тоді опиняється всередині <body>, і сторінка лишається валідною.
 // Основний index.html у проєкті не змінюється.
-for (const page of ['index.html', 'pricing.html', 'docs.html', 'embed.html']) {
+for (const page of ['index.html', 'pricing.html', 'docs.html', 'embed.html', 'contact.html']) {
   const file = path.join(out, page);
   const html = fs.readFileSync(file, 'utf8');
   const stripped = html.replace(/\s*<\/body>\s*<\/html>\s*$/i, '\n');
