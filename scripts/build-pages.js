@@ -41,6 +41,7 @@ const head = (title, description) => `<!DOCTYPE html>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"${FA_SRI ? ` integrity="${FA_SRI}"` : ''} crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
     <script src="assets/js/site.js" defer></script>
   </head>
   <body class="flex min-h-screen flex-col bg-background font-sans text-slate-50 antialiased" id="top">
