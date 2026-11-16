@@ -1,0 +1,68 @@
+# CI/CD конвеєр Coin Flow: перевірка коду та автоматичний деплой на Vercel після кожного push у main.
+# Потрібні секрети репозиторію (Settings → Secrets and variables → Actions):
+#   VERCEL_TOKEN       — токен із Vercel (Account Settings → Tokens)
+#   VERCEL_ORG_ID      — ідентифікатор акаунта/команди Vercel
+#   VERCEL_PROJECT_ID  — ідентифікатор проєкту Vercel (Project → Settings → General)
+name: CI/CD Production Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # дозволяє запустити конвеєр вручну з вкладки Actions
+
+permissions:
+  contents: read
+
+# якщо під час деплою надійшов новий push, старий запуск скасовується
+concurrency:
+  group: production-deploy
+  cancel-in-progress: true
+
+jobs:
+  # ---------- CI: збірка та перевірки ----------
+  check:
+    name: Build and check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Tailwind CSS
+        run: npm run build:css
+
+      - name: Generate subpages
+        run: npm run build:pages
+
+      - name: Check scripts, links and SEO tags
+        run: npm run check
+
+  # ---------- CD: деплой на Vercel (лише якщо перевірки пройдено) ----------
+  deploy:
+    name: Deploy to Vercel
+    needs: check
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel environment information
+        run: vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+
+      - name: Deploy project to Vercel (production)
+        run: vercel deploy --prod --yes --token="$VERCEL_TOKEN"
