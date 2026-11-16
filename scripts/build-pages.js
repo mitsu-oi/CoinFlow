@@ -40,6 +40,8 @@ const head = (title, description, file) => `<!DOCTYPE html>
     <meta name="theme-color" content="#111928">
     <link rel="preload" href="assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/tailwind.css">
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
     <script src="assets/js/site.js" defer></script>

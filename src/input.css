@@ -51,6 +51,7 @@
    до приходу CDN-стилів слайди вже стоять у ряд і не «стрибають» */
 @layer components {
   .swiper {
+    position: relative; /* без цього абсолютні елементи слайдів (sr-only) не обрізаються й розширюють сторінку */
     overflow: hidden;
   }
   .swiper-wrapper {

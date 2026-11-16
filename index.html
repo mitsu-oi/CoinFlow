@@ -37,6 +37,20 @@
       type="font/woff2"
       crossorigin
     />
+    <link
+      rel="preload"
+      href="assets/fonts/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/manrope-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <!-- Постер Hero — найбільший елемент першого екрана (LCP), тому завантажується першим -->
     <link
       rel="preload"
@@ -50,21 +64,6 @@
          (css/legacy.min.css): шар нижчий за утиліти Tailwind, тож класи Tailwind мають пріоритет -->
     <link rel="stylesheet" href="css/tailwind.css" />
     <link rel="stylesheet" href="css/legacy.min.css" />
-    <!-- Стилі Swiper (CDN) завантажуються без блокування показу сторінки: слайдери розташовані нижче першого екрана.
-         Стилі й скрипт Fancybox підвантажує plugins.js, коли користувач доходить до галереї -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
-      integrity="sha384-gAPqlBuTCdtVcYt9ocMOYWrnBZ4XSL6q+4eXqwNycOr4iFczhNKtnYhF3NEXJM51"
-      crossorigin="anonymous"
-      media="print"
-      onload="this.media = 'all'"
-    />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
-    /></noscript>
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
     <script src="assets/js/site.js" defer></script>
     <script src="assets/js/simulator.js" defer></script>
@@ -2286,14 +2285,8 @@
     <!-- Звіт для друку / збереження у PDF (заповнюється скриптом simulator.js) -->
     <div id="print-report" class="hidden p-8 text-black print:block"></div>
 
-    <!-- JS бібліотек (CDN, з SRI) з атрибутом defer: не блокують розбір сторінки й виконуються по порядку.
-         Fancybox тут немає: plugins.js підвантажує його, коли користувач наближається до галереї -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"
-      integrity="sha384-2UI1PfnXFjVMQ7/ZDEF70CR943oH3v6uZrFQGGqJYlvhh4g6z6uVktxYbOlAczav"
-      crossorigin="anonymous"
-      defer
-    ></script>
+    <!-- Typed.js (3 КБ, CDN із SRI) і plugins.js з атрибутом defer не блокують розбір сторінки.
+         Swiper і Fancybox тут немає: plugins.js підвантажує їх, коли користувач наближається до відгуків чи галереї -->
     <script
       src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"
       integrity="sha384-cMrTlShXEGSdSFA359p+3aVUxK/R+0TAfbRZMcTlAn8yqzxEDj05QsS65nTFMMj4"

@@ -38,7 +38,7 @@
     });
   }
 
-  // ---------- фонове відео Hero: спочатку показується легкий постер, відео (1,6 МБ) стартує після завантаження сторінки ----------
+  // ---------- фонове відео Hero: спочатку показується легкий постер, відео (1,6 МБ) стартує після першої дії користувача ----------
   const heroVideo = document.querySelector('video[data-src]');
   if (heroVideo) {
     const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -48,8 +48,14 @@
       heroVideo.play().catch(() => {}); // якщо браузер заборонив автозапуск, лишається постер
     };
     if (!calm && !saveData) {
-      if (document.readyState === 'complete') startVideo();
-      else window.addEventListener('load', startVideo, { once: true });
+      // Чекаємо першої дії користувача (рух миші, дотик, прокрутка, клавіша): до цього моменту
+      // браузер уже зафіксував швидкий показ постера, а відео не конкурує з важливими ресурсами
+      const events = ['pointermove', 'pointerdown', 'touchstart', 'keydown', 'scroll'];
+      const onFirstAction = () => {
+        events.forEach((name) => window.removeEventListener(name, onFirstAction));
+        startVideo();
+      };
+      events.forEach((name) => window.addEventListener(name, onFirstAction, { passive: true }));
     }
   }
 
