@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" font-family="Inter, 'Segoe UI', Arial, sans-serif">
+  <rect width="800" height="500" fill="#0f172a"/>
+  <circle cx="680" cy="80" r="220" fill="#10b981" opacity="0.07"/>
+  <circle cx="90" cy="460" r="160" fill="#6ee7b7" opacity="0.05"/>
+  <rect x="110" y="70" width="580" height="360" rx="18" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <text x="150" y="125" fill="#f8fafc" font-size="28" font-weight="700">Сценарії накопичення</text>
+  <rect x="190" y="290" width="90" height="90" rx="10" fill="#334155"/><rect x="355" y="230" width="90" height="150" rx="10" fill="#047857"/><rect x="520" y="170" width="90" height="210" rx="10" fill="#10b981"/>
+  <text x="235" y="275" fill="#94a3b8" font-size="26" text-anchor="middle">30 %</text><text x="400" y="215" fill="#94a3b8" font-size="26" text-anchor="middle">50 %</text><text x="565" y="155" fill="#6ee7b7" font-size="26" font-weight="700" text-anchor="middle">70 %</text>
+  <path d="M150 380h500" stroke="#334155" stroke-width="2"/>
+</svg>

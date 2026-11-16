@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" font-family="Inter, 'Segoe UI', Arial, sans-serif">
+  <rect width="800" height="500" fill="#0f172a"/>
+  <circle cx="680" cy="80" r="220" fill="#10b981" opacity="0.07"/>
+  <circle cx="90" cy="460" r="160" fill="#6ee7b7" opacity="0.05"/>
+  <rect x="160" y="60" width="480" height="380" rx="18" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <rect x="160" y="60" width="480" height="76" rx="18" fill="#10b981"/><rect x="160" y="110" width="480" height="26" fill="#10b981"/>
+  <text x="400" y="110" fill="#052e22" font-size="30" font-weight="700" text-anchor="middle">Витрати за місяць</text>
+  <rect x="196" y="166" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="256" y="166" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="316" y="166" width="46" height="46" rx="10" fill="#047857" stroke="#6ee7b7" stroke-width="2"/>
+  <rect x="376" y="166" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="436" y="166" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="496" y="166" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="556" y="166" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="196" y="228" width="46" height="46" rx="10" fill="#047857" stroke="#6ee7b7" stroke-width="2"/>
+  <rect x="256" y="228" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="316" y="228" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="376" y="228" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="436" y="228" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="496" y="228" width="46" height="46" rx="10" fill="#047857" stroke="#6ee7b7" stroke-width="2"/>
+  <rect x="556" y="228" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="196" y="290" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="256" y="290" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="316" y="290" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="376" y="290" width="46" height="46" rx="10" fill="#047857" stroke="#6ee7b7" stroke-width="2"/>
+  <rect x="436" y="290" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="496" y="290" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="556" y="290" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="196" y="352" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="256" y="352" width="46" height="46" rx="10" fill="#047857" stroke="#6ee7b7" stroke-width="2"/>
+  <rect x="316" y="352" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="376" y="352" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="436" y="352" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="496" y="352" width="46" height="46" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="556" y="352" width="46" height="46" rx="10" fill="#047857" stroke="#6ee7b7" stroke-width="2"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" font-family="Inter, 'Segoe UI', Arial, sans-serif">
+  <rect width="800" height="500" fill="#0f172a"/>
+  <circle cx="680" cy="80" r="220" fill="#10b981" opacity="0.07"/>
+  <circle cx="90" cy="460" r="160" fill="#6ee7b7" opacity="0.05"/>
+  <rect x="150" y="90" width="500" height="320" rx="18" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <text x="190" y="150" fill="#94a3b8" font-size="24">Безпечний ліміт на день</text>
+  <text x="190" y="240" fill="#6ee7b7" font-size="88" font-weight="700">450 ₴</text>
+  <rect x="190" y="290" width="420" height="10" rx="5" fill="#334155"/><rect x="190" y="290" width="270" height="10" rx="5" fill="#10b981"/><circle cx="460" cy="295" r="13" fill="#f8fafc"/>
+  <rect x="190" y="340" width="420" height="10" rx="5" fill="#334155"/><rect x="190" y="340" width="150" height="10" rx="5" fill="#10b981"/><circle cx="340" cy="345" r="13" fill="#f8fafc"/>
+</svg>

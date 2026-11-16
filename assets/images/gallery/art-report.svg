@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" font-family="Inter, 'Segoe UI', Arial, sans-serif">
+  <rect width="800" height="500" fill="#0f172a"/>
+  <circle cx="680" cy="80" r="220" fill="#10b981" opacity="0.07"/>
+  <circle cx="90" cy="460" r="160" fill="#6ee7b7" opacity="0.05"/>
+  <rect x="250" y="50" width="300" height="400" rx="16" fill="#f8fafc"/>
+  <path d="M470 50h64a16 16 0 0 1 16 16v64h-64a16 16 0 0 1-16-16V50Z" fill="#cbd5e1"/>
+  <rect x="285" y="100" width="150" height="16" rx="8" fill="#0f172a"/><rect x="285" y="136" width="210" height="10" rx="5" fill="#94a3b8"/><rect x="285" y="160" width="180" height="10" rx="5" fill="#94a3b8"/>
+  <rect x="285" y="300" width="36" height="60" rx="6" fill="#6ee7b7"/><rect x="335" y="270" width="36" height="90" rx="6" fill="#34d399"/><rect x="385" y="240" width="36" height="120" rx="6" fill="#10b981"/><rect x="435" y="210" width="36" height="150" rx="6" fill="#047857"/>
+  <rect x="285" y="390" width="110" height="34" rx="8" fill="#e5484d"/><text x="340" y="414" fill="#ffffff" font-size="20" font-weight="700" text-anchor="middle">PDF</text>
+</svg>
