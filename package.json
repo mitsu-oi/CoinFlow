@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build:css": "tailwindcss -i ./src/input.css -o ./css/tailwind.css --minify",
+    "build:css": "tailwindcss -i ./src/input.css -o ./css/tailwind.css --minify && tailwindcss -i ./src/legacy.css -o ./css/legacy.min.css --minify",
     "watch:css": "tailwindcss -i ./src/input.css -o ./css/tailwind.css --watch",
     "deploy:prepare": "node scripts/prepare-deploy.js",
-    "build:pages": "node scripts/build-pages.js"
+    "build:pages": "node scripts/build-pages.js",
+    "check": "node scripts/check-site.js"
   },
   "keywords": [],
   "author": "",

@@ -38,6 +38,21 @@
     });
   }
 
+  // ---------- фонове відео Hero: спочатку показується легкий постер, відео (1,6 МБ) стартує після завантаження сторінки ----------
+  const heroVideo = document.querySelector('video[data-src]');
+  if (heroVideo) {
+    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const saveData = navigator.connection && navigator.connection.saveData; // режим заощадження трафіку
+    const startVideo = () => {
+      heroVideo.src = heroVideo.dataset.src;
+      heroVideo.play().catch(() => {}); // якщо браузер заборонив автозапуск, лишається постер
+    };
+    if (!calm && !saveData) {
+      if (document.readyState === 'complete') startVideo();
+      else window.addEventListener('load', startVideo, { once: true });
+    }
+  }
+
   // ---------- форми підписки (ранній доступ, розсилка): валідація email і повідомлення про успіх ----------
   document.querySelectorAll('form[data-subscribe]').forEach((form) => {
     const email = form.querySelector('input[type="email"]');

@@ -27,19 +27,19 @@ const unhighlight = (html) =>
 const skipAndHeader = unhighlight(toIndex(index.slice(skipStart, headerEnd)));
 const footer = toIndex(index.slice(footerStart, footerEnd));
 
-const FA_SRI = (index.match(/integrity="(sha512-[^"]+)"/) || [])[1];
 
-const head = (title, description) => `<!DOCTYPE html>
+const SITE = 'https://coinflow-omega.vercel.app/'; // адреса продакшн-сайту для canonical
+const head = (title, description, file) => `<!DOCTYPE html>
 <html lang="uk">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title}</title>
     <meta name="description" content="${description}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"${FA_SRI ? ` integrity="${FA_SRI}"` : ''} crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="canonical" href="${SITE}${file}">
+    <meta name="theme-color" content="#111928">
+    <link rel="preload" href="assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/tailwind.css">
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
     <script src="assets/js/site.js" defer></script>
@@ -49,7 +49,7 @@ const head = (title, description) => `<!DOCTYPE html>
 
 const markCurrent = (html, href) => html.split(`href="${href}" class="`).join(`href="${href}" aria-current="page" class="`);
 const page = (title, description, main, current) =>
-  head(title, description) + markCurrent(skipAndHeader, current) + '\n\n' + main + '\n\n    ' + footer + '\n  </body>\n</html>\n';
+  head(title, description, current) + markCurrent(skipAndHeader, current) + '\n\n' + main + '\n\n    ' + footer + '\n  </body>\n</html>\n';
 
 // ---------- спільні класи ----------
 const H1 = 'font-heading text-3xl leading-display font-semibold text-balance text-slate-50 sm:text-4xl md:text-5xl';
@@ -103,7 +103,7 @@ const docs = [
   { id: 'export', title: 'Збереження результату', body: ['Результат можна завантажити у форматі PDF або поділитися посиланням на розрахунок із родиною чи партнером.'] },
   { id: 'privacy', title: 'Конфіденційність', body: ['Розрахунок виконується локально в браузері й не передає ваші дані третім особам. Реєстрація потрібна лише для раннього доступу.'] },
 ];
-const tocLink = 'flex min-h-11 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400';
+const tocLink = 'flex min-h-12 items-center rounded-md px-3 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400';
 const docsMain = `    <main id="main" tabindex="-1" class="mx-auto w-full max-w-6xl flex-1 px-4 py-16 md:px-6 md:py-24">
       <div class="mb-12 md:mb-16">
         <h1 class="${H1}">Документація</h1>
@@ -240,7 +240,7 @@ const embedMain = `    <main id="main" tabindex="-1" class="mx-auto w-full max-w
 const INPUT = 'min-h-12 w-full rounded-md border border-slate-700 bg-slate-900 px-4 pr-11 text-base text-slate-50 transition-colors duration-150 hover:border-slate-500 focus:ring-3 focus:ring-brand-300/60 focus:outline-none';
 const LABEL = 'mb-2 block text-sm font-semibold text-slate-50';
 const ERROR = 'mt-1.5 hidden text-sm text-red-400';
-const OK_ICON = '<span data-ok class="pointer-events-none absolute top-3.5 right-3.5 hidden text-green-400"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></span>';
+const OK_ICON = '<span data-ok class="pointer-events-none absolute top-3.5 right-3.5 hidden text-green-400"><svg class="inline-block size-[1em] shrink-0 fill-current" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#circle-check"></use></svg></span>';
 
 // одне поле: label (for = id) + input + іконка успіху + підказка + місце для помилки
 const field = ({ id, label, errId, hint, control, wide }) => `
@@ -307,8 +307,8 @@ const contactMain = `    <main id="main" tabindex="-1" class="mx-auto w-full max
           <h2 id="contact-aside-title" class="${H2}">Контакти</h2>
           <address class="mt-4 flex flex-col gap-3 text-slate-400 not-italic">
             <span>Вул. Лукаша, Львів 00001</span>
-            <a href="tel:+380800123456" class="inline-flex min-h-11 items-center text-slate-300 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400">0 800 123 456</a>
-            <a href="mailto:hello@coinflow.ua" class="inline-flex min-h-11 items-center text-slate-300 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400">hello@coinflow.ua</a>
+            <a href="tel:+380800123456" class="inline-flex min-h-12 items-center text-slate-300 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400">0 800 123 456</a>
+            <a href="mailto:hello@coinflow.ua" class="inline-flex min-h-12 items-center text-slate-300 hover:text-white focus-visible:outline-2 focus-visible:outline-brand-400">hello@coinflow.ua</a>
           </address>
           <p class="mt-4 border-t border-slate-700 pt-4 text-sm text-slate-400">
             Це демонстраційна форма: дані перевіряються в браузері й нікуди не надсилаються.
@@ -321,7 +321,7 @@ const contactMain = `    <main id="main" tabindex="-1" class="mx-auto w-full max
     <!-- Модальне вікно успіху (поза main, щоб main можна було зробити inert) -->
     <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-4">
       <div role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalText" class="w-full max-w-md rounded-xl border border-slate-700 bg-slate-800 p-8 text-center shadow-card">
-        <span class="mx-auto flex size-14 items-center justify-center rounded-full bg-brand-500/10 text-2xl text-brand-300"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
+        <span class="mx-auto flex size-14 items-center justify-center rounded-full bg-brand-500/10 text-2xl text-brand-300"><svg class="inline-block size-[1em] shrink-0 fill-current" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#check"></use></svg></span>
         <h2 id="modalTitle" class="mt-5 font-heading text-2xl leading-heading font-semibold text-slate-50">Дякуємо!</h2>
         <p id="modalText" class="mt-3 text-slate-400">Форма успішно пройшла клієнтську валідацію. Демонстрація успішного надсилання: дані нікуди не передавалися.</p>
         <button type="button" id="closeModalBtn" class="${BTN_PRIMARY} mt-6">Закрити</button>

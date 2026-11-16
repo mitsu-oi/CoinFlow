@@ -90,7 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
   pauseOnFocus(gallery);
 
   // ---------- Fancybox v5: перегляд зображень альбому на весь екран ----------
-  if (typeof Fancybox !== 'undefined') {
+  // Бібліотека (стилі та скрипт, ~50 КБ) потрібна лише в галереї, тому завантажується на вимогу:
+  // коли користувач наближається до секції або ставить фокус на зображення.
+  const FANCYBOX = {
+    css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css',
+    cssIntegrity: 'sha384-qlUhevqmCF5AxtnfkF0zXJClBzA6GJuX/UrLejCfE61bBGt+zo/My0AJ+ojVmUSb',
+    js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js',
+    jsIntegrity: 'sha384-BodKYo5iRmFaqEaP1o8AAu9hCHqLvNhSWEg12QF1IjPnl1SgsrwQMSMKUB4POJ18',
+  };
+  let fancyboxRequested = false;
+
+  function bindFancybox() {
+    if (typeof Fancybox === 'undefined') return;
     Fancybox.bind('[data-fancybox="coinflow-gallery"]', {
       Carousel: { transition: 'fade' }, // плавне згасання між зображеннями
       Images: { Panzoom: { maxScale: 3 } }, // збільшення до 3×
@@ -111,5 +122,43 @@ document.addEventListener('DOMContentLoaded', () => {
         DOWNLOAD: 'Завантажити',
       },
     });
+  }
+
+  function loadFancybox() {
+    if (fancyboxRequested) return;
+    fancyboxRequested = true;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = FANCYBOX.css;
+    link.integrity = FANCYBOX.cssIntegrity;
+    link.crossOrigin = 'anonymous';
+    const script = document.createElement('script');
+    script.src = FANCYBOX.js;
+    script.integrity = FANCYBOX.jsIntegrity;
+    script.crossOrigin = 'anonymous';
+    script.addEventListener('load', bindFancybox);
+    document.head.append(link, script);
+  }
+
+  const gallerySection = document.getElementById('gallery');
+  if (gallerySection) {
+    if ('IntersectionObserver' in window) {
+      // починаємо завантаження за 600 px до появи галереї на екрані
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            loadFancybox();
+            observer.disconnect();
+          }
+        },
+        { rootMargin: '600px 0px' },
+      );
+      observer.observe(gallerySection);
+    } else {
+      loadFancybox();
+    }
+    // запасний шлях: фокус клавіатури чи дотик до галереї до спрацювання спостерігача
+    gallerySection.addEventListener('focusin', loadFancybox, { once: true });
+    gallerySection.addEventListener('pointerdown', loadFancybox, { once: true });
   }
 });

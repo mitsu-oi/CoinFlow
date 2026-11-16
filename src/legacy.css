@@ -1,0 +1,3 @@
+/* Власні стилі ЛР №5 збираються окремо в css/legacy.min.css: мінімізовані й загорнуті в шар "legacy",
+   який нижчий за утиліти Tailwind (порядок шарів оголошено в input.css). */
+@import "../css/style.css" layer(legacy);

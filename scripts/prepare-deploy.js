@@ -4,7 +4,7 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 const out = path.resolve(root, '..', 'coin-flow-deploy');
-const include = ['index.html', 'pricing.html', 'docs.html', 'embed.html', 'contact.html', 'css/tailwind.css', 'css/style.css', 'assets'];
+const include = ['index.html', 'pricing.html', 'docs.html', 'embed.html', 'contact.html', 'css/tailwind.css', 'css/legacy.min.css', 'robots.txt', 'sitemap.xml', 'assets'];
 
 fs.rmSync(out, { recursive: true, force: true });
 for (const item of include) {
