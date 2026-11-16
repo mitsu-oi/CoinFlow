@@ -38,18 +38,30 @@
     });
   }
 
-  // ---------- фонове відео Hero: спочатку показується легкий постер, відео (1,6 МБ) стартує після першої дії користувача ----------
-  const heroVideo = document.querySelector('video[data-src]');
-  if (heroVideo) {
+  // ---------- фон Hero: спочатку легке зображення (15 КБ), відео (1,6 МБ) підставляється після першої дії користувача ----------
+  const heroImage = document.querySelector('img[data-video]');
+  if (heroImage) {
     const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const saveData = navigator.connection && navigator.connection.saveData; // режим заощадження трафіку
     const startVideo = () => {
-      heroVideo.src = heroVideo.dataset.src;
-      heroVideo.play().catch(() => {}); // якщо браузер заборонив автозапуск, лишається постер
+      const video = document.createElement('video');
+      video.className = heroImage.className;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.setAttribute('aria-hidden', 'true');
+      video.poster = heroImage.currentSrc || heroImage.src;
+      // зображення замінюється лише тоді, коли відео вже готове грати: без миготіння порожнього кадру
+      video.addEventListener('canplay', () => {
+        heroImage.replaceWith(video);
+        video.play().catch(() => {}); // якщо браузер заборонив автозапуск, лишається перший кадр
+      }, { once: true });
+      video.src = heroImage.dataset.video;
+      video.load();
     };
     if (!calm && !saveData) {
       // Чекаємо першої дії користувача (рух миші, дотик, прокрутка, клавіша): до цього моменту
-      // браузер уже зафіксував швидкий показ постера, а відео не конкурує з важливими ресурсами
+      // браузер уже показав перший екран, і відео не конкурує з важливими ресурсами
       const events = ['pointermove', 'pointerdown', 'touchstart', 'keydown', 'scroll'];
       const onFirstAction = () => {
         events.forEach((name) => window.removeEventListener(name, onFirstAction));

@@ -61,6 +61,16 @@
     flex-shrink: 0;
     width: 100%;
   }
+  /* курсор Typed.js (бібліотека запускається з autoInsertCss: false) */
+  .typed-cursor {
+    opacity: 1;
+    animation: typed-blink 0.7s infinite;
+  }
+  @keyframes typed-blink {
+    50% {
+      opacity: 0;
+    }
+  }
 }
 
 /* Дизайн-система Coin Flow (ЛР №4): шрифти і колір бренду (смарагдовий).

@@ -361,16 +361,17 @@
     <main id="main" tabindex="-1" class="print:hidden">
       <!-- ===== Hero ===== -->
       <section class="hero" aria-labelledby="hero-title">
-        <video
+        <img
           class="hero-video"
-          poster="assets/images/hero-poster.webp"
-          data-src="assets/images/hero.mp4"
-          muted
-          loop
-          playsinline
-          preload="none"
+          src="assets/images/hero-poster.webp"
+          data-video="assets/images/hero.mp4"
+          alt=""
+          width="960"
+          height="540"
+          fetchpriority="high"
+          decoding="async"
           aria-hidden="true"
-        ></video>
+        />
 
         <div class="hero-overlay" aria-hidden="true"></div>
 

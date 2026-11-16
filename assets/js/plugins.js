@@ -94,9 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
         startDelay: 400,
         smartBackspace: true, // стирає лише ту частину, що відрізняється від наступного рядка
         loop: true,
+        autoInsertCss: false, // стилі курсора вже є в tailwind.css: без вставки <style> браузер не перераховує всю сторінку
       });
-    if ('requestIdleCallback' in window) window.requestIdleCallback(startTyped, { timeout: 2000 });
-    else setTimeout(startTyped, 200);
+    // запуск після повного завантаження сторінки, у вільний від роботи момент
+    const schedule = () => ('requestIdleCallback' in window ? window.requestIdleCallback(startTyped, { timeout: 3000 }) : setTimeout(startTyped, 300));
+    if (document.readyState === 'complete') schedule();
+    else window.addEventListener('load', schedule, { once: true });
   }
 
   // ---------- Swiper.js ----------
