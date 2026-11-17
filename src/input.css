@@ -61,6 +61,88 @@
     flex-shrink: 0;
     width: 100%;
   }
+  /* Анімований фон сторінки: три великі кольорові плями повільно плавають за вмістом.
+     Анімується лише transform (це робить відеокарта, тож сторінка не гальмує); плями не перехоплюють кліки. */
+  .aurora {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .aurora span {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform;
+  }
+  .aurora span:nth-child(1) {
+    top: -22vmax;
+    left: -16vmax;
+    width: 62vmax;
+    height: 62vmax;
+    background: radial-gradient(circle, rgb(16 185 129 / 0.26), transparent 65%);
+    animation: aurora-a 24s ease-in-out infinite alternate;
+  }
+  .aurora span:nth-child(2) {
+    top: 18vh;
+    right: -22vmax;
+    width: 58vmax;
+    height: 58vmax;
+    background: radial-gradient(circle, rgb(79 70 229 / 0.24), transparent 65%);
+    animation: aurora-b 30s ease-in-out infinite alternate;
+  }
+  .aurora span:nth-child(3) {
+    bottom: -26vmax;
+    left: 18vw;
+    width: 56vmax;
+    height: 56vmax;
+    background: radial-gradient(circle, rgb(6 182 212 / 0.2), transparent 65%);
+    animation: aurora-c 36s ease-in-out infinite alternate;
+  }
+  /* четверта пляма тягнеться за курсором миші (координати задає site.js); з'являється після першого руху */
+  .aurora .aurora-pointer {
+    top: 0;
+    left: 0;
+    width: 46vmax;
+    height: 46vmax;
+    margin: -23vmax 0 0 -23vmax;
+    background: radial-gradient(circle, rgb(52 211 153 / 0.24), transparent 60%);
+    opacity: 0;
+    animation: none;
+    transition:
+      transform 0.6s ease-out,
+      opacity 0.8s ease;
+  }
+  .aurora .aurora-pointer.is-active {
+    opacity: 1;
+  }
+  @keyframes aurora-a {
+    to {
+      transform: translate3d(20vw, 24vh, 0) scale(1.15);
+    }
+  }
+  @keyframes aurora-b {
+    to {
+      transform: translate3d(-24vw, -16vh, 0) scale(0.9);
+    }
+  }
+  @keyframes aurora-c {
+    to {
+      transform: translate3d(16vw, -26vh, 0) scale(1.2);
+    }
+  }
+  /* користувачам з опцією «зменшити рух» плями показуються нерухомими */
+  @media (prefers-reduced-motion: reduce) {
+    .aurora span {
+      animation: none;
+    }
+  }
+  @media print {
+    .aurora {
+      display: none;
+    }
+  }
+
   /* курсор Typed.js (бібліотека запускається з autoInsertCss: false) */
   .typed-cursor {
     opacity: 1;

@@ -70,6 +70,8 @@
     <script src="assets/js/goal-tracker.js" defer></script>
   </head>
   <body class="print:bg-white print:text-black">
+    <!-- Анімований фон: декоративні кольорові плями (стилі .aurora в tailwind.css) -->
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span><span class="aurora-pointer"></span></div>
     <!-- Пропуск шапки для користувачів клавіатури і скрінрідерів (з'являється при фокусі) -->
     <a
       href="#main"
@@ -360,7 +362,7 @@
 
     <main id="main" tabindex="-1" class="print:hidden">
       <!-- ===== Hero ===== -->
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero bg-transparent" aria-labelledby="hero-title">
         <img
           class="hero-video"
           src="assets/images/hero-poster.webp"

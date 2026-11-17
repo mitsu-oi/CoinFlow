@@ -47,6 +47,8 @@ const head = (title, description, file) => `<!DOCTYPE html>
     <script src="assets/js/site.js" defer></script>
   </head>
   <body class="flex min-h-screen flex-col bg-background font-sans text-slate-50 antialiased" id="top">
+    <!-- Анімований фон: декоративні кольорові плями (стилі .aurora в tailwind.css) -->
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span><span class="aurora-pointer"></span></div>
     `;
 
 const markCurrent = (html, href) => html.split(`href="${href}" class="`).join(`href="${href}" aria-current="page" class="`);

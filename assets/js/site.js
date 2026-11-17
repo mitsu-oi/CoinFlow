@@ -38,6 +38,25 @@
     });
   }
 
+  // ---------- анімований фон: пляма світла плавно рухається за курсором миші ----------
+  const pointerGlow = document.querySelector('.aurora-pointer');
+  if (pointerGlow && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let frame = 0;
+    window.addEventListener(
+      'pointermove',
+      (event) => {
+        if (event.pointerType !== 'mouse' || frame) return; // на сенсорних екранах курсора немає
+        // не частіше одного оновлення на кадр; змінюється лише transform, тому сторінка не перемальовується
+        frame = requestAnimationFrame(() => {
+          frame = 0;
+          pointerGlow.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+          pointerGlow.classList.add('is-active');
+        });
+      },
+      { passive: true },
+    );
+  }
+
   // ---------- фон Hero: спочатку легке зображення (15 КБ), відео (1,6 МБ) підставляється після першої дії користувача ----------
   const heroImage = document.querySelector('img[data-video]');
   if (heroImage) {
